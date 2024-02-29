@@ -13,3 +13,24 @@ require_once "config.php";
     <h1>En Nettbutikk</h1>
 </body>
 </html>
+<?php
+ if ($result->num_rows === 1) {
+    $sql2 = "SELECT  navn FROM test";
+    
+    if ($stmt = $link->prepare($sql2)) {
+        if ($stmt->execute()) {
+            $stmt->store_result();
+
+            if ($stmt->num_rows == 1) {
+                $stmt->bind_result($navn);
+
+                if ($stmt->fetch()) {
+
+                    $_SESSION["navn"] = $navn;
+
+                }
+            }
+        }
+    }
+}
+?>
