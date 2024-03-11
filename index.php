@@ -17,7 +17,7 @@ require_once "config.php";
         <a href="index.php" id="Menyaktiv"><h3>Hjem</a>
         <a href="Produktoversikt.php" class="Menyknapp">Produkter</a>
         <a href="profil.php"class="Menyknapp">Profil</a>
-        <a href="FAQ.php"class="Menyknapp">FAQ</a>
+        <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
     </ul>
 </div>
 </body>
