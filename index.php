@@ -12,8 +12,16 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="Meny">
-    </div>
+<ul class="topnav">
+        <li><a href="index.php" class="menyiconAktiv" height="40px"
+                    width="auto"></a></li>
+        <li><a href="Produktoversikt.php" class="menyicon" height="40px"
+                    width="auto"></a></li>
+        <li><a href="profil.php" class="menyicon" height="40px"
+                    width="auto"></a></li>
+        <li><a href="FAQ.php" class="menyicon" height="40px"
+                    width="auto"></a></li>
+    </ul>
 </body>
 </html>
 <?php
