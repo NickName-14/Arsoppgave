@@ -14,10 +14,10 @@ require_once "config.php";
 <body>
 <div class="Meny">
         <ul class="TopNav">
-        <a href="index.php">Hjem</a>
-        <a href="Produktoversikt.php">Produkter</a>
-        <a href="profil.php">Profil</a>
-        <a href="FAQ.php">FAQ</a>
+        <a href="index.php" class="Menyknapp"><h3>Hjem</a>
+        <a href="Produktoversikt.php" class="Menyknapp">Produkter</a>
+        <a href="profil.php" id="Menyaktiv">Profil</a>
+        <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
     </ul>
 </div>
 </body>
