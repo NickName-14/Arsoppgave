@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+  }
+.Meny {
+    display: flex;
+    justify-content: center;
+}
+.TopNav{
+    
+    font-size: larger;
+    
+}
+.Menyknapp{
+    text-decoration: none;
+}
+#Menyaktiv {
+    text-decoration: none;
+    font-weight: bold;
+}
