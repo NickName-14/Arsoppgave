@@ -12,6 +12,14 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="Meny">
+        <ul class="TopNav">
+        <a href="index.php">Hjem</a>
+        <a href="Produktoversikt.php">Produkter</a>
+        <a href="profil.php">Profil</a>
+        <a href="FAQ.php">FAQ</a>
+    </ul>
+</div>
 </body>
 </html>
 <?php
