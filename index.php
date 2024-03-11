@@ -13,14 +13,10 @@ require_once "config.php";
 </head>
 <body>
 <ul class="topnav">
-        <li><a href="index.php" class="menyiconAktiv" height="40px"
-                    width="auto"></a></li>
-        <li><a href="Produktoversikt.php" class="menyicon" height="40px"
-                    width="auto"></a></li>
-        <li><a href="profil.php" class="menyicon" height="40px"
-                    width="auto"></a></li>
-        <li><a href="FAQ.php" class="menyicon" height="40px"
-                    width="auto"></a></li>
+        <li><a href="index.php"></a></li>
+        <li><a href="Produktoversikt.php"></a></li>
+        <li><a href="profil.php"></a></li>
+        <li><a href="FAQ.php"></a></li>
     </ul>
 </body>
 </html>
