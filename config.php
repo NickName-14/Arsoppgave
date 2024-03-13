@@ -2,7 +2,7 @@
 $servername = "10.200.1.108";
 $username = "root";
 $password = "Admin";
-$dbname = "mydb";
+$dbname = "Årsoppgave";
 
 // koble til databasen
 $link = new mysqli($servername, $username, $password, $dbname);

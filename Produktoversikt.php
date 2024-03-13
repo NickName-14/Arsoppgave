@@ -24,6 +24,7 @@ require_once "config.php";
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
+    <h1>Produkter</h1>
 </body>
 </html>
 <?php
