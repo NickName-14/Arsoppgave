@@ -46,7 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["id"] = $id;
                                 $_SESSION["navn"] = $navn;
-                                $_SESSION["bruker"] = $username;
+                                $_SESSION["brukernavn"] = $username;
+                                $_SESSION["e-post"]  = $e_post;
                                 $_SESSION["passord"] = $password;
                                 $_SESSION["admin"] = $admin;
                                 
@@ -84,9 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 </head>
 <body>
     <form action="<?=$_SERVER['PHP_SELF'];?>" method="GET" class="form-group">
-        <div class="imgcontainer">
-          <img src="assets/jpg/Linje5.jpg" alt="linje5" class="avatar">
-        </div>
+
       
         <div class="containerlogin">
           <label for="uname"><b>Brukernavn</b></label>

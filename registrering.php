@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
       
-        $sql = "INSERT INTO login (navn, bruker, passord, total, ubetalt, admin) VALUES (?, ?, ?, 0, 0, 'no')";
+        $sql = "INSERT INTO Kunder (navn, brukernavn, 'E-post', passord, admin) VALUES (?, ?, ?, ?, 'false')";
 
         if ($stmt = $link->prepare($sql)) {
             $stmt->bind_param("sss", $param_navn, $param_username, $param_password);
