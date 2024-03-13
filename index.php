@@ -9,7 +9,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $bruker = $_COOKIE["bruker"];
         
       
-        $sql = "SELECT * FROM login WHERE bruker = ?";
+        $sql = "SELECT * FROM Kunder WHERE Brukernavn = ?";
         $stmt = $link->prepare($sql);
         $stmt->bind_param("s", $bruker);
         $stmt->execute();
@@ -17,14 +17,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         
         if ($result->num_rows === 1) {
-            $sql2 = "SELECT id, navn, bruker, passord, admin FROM login WHERE bruker ='".$bruker."'";
+            $sql2 = "SELECT Kunderid, Navn, Brukernavn, E-post, Passord, Admin FROM Kunder WHERE bruker ='".$bruker."'";
             
             if ($stmt = $link->prepare($sql2)) {
                 if ($stmt->execute()) {
                     $stmt->store_result();
 
                     if ($stmt->num_rows == 1) {
-                        $stmt->bind_result($id, $navn, $username, $password, $admin);
+                        $stmt->bind_result($id, $navn, $username, $e_post, $password, $admin);
 
                         if ($stmt->fetch()) {
                             
@@ -33,7 +33,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["navn"] = $navn;
-                            $_SESSION["bruker"] = $username;
+                            $_SESSION["brukernavn"] = $username;
+                            $_SESSION["E-post"] = $e_post;
                             $_SESSION["passord"] = $password;
                             $_SESSION["admin"] = $admin;
                         }
