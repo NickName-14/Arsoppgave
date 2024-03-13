@@ -1,6 +1,48 @@
 <?php
 session_start();
 require_once "config.php";
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    
+    if (isset($_COOKIE["bruker"])) {
+        
+        $bruker = $_COOKIE["bruker"];
+        
+      
+        $sql = "SELECT * FROM login WHERE bruker = ?";
+        $stmt = $link->prepare($sql);
+        $stmt->bind_param("s", $bruker);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        
+        if ($result->num_rows === 1) {
+            $sql2 = "SELECT id, navn, bruker, passord, admin FROM login WHERE bruker ='".$bruker."'";
+            
+            if ($stmt = $link->prepare($sql2)) {
+                if ($stmt->execute()) {
+                    $stmt->store_result();
+
+                    if ($stmt->num_rows == 1) {
+                        $stmt->bind_result($id, $navn, $username, $password, $admin);
+
+                        if ($stmt->fetch()) {
+                            
+
+                            
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["navn"] = $navn;
+                            $_SESSION["bruker"] = $username;
+                            $_SESSION["passord"] = $password;
+                            $_SESSION["admin"] = $admin;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
