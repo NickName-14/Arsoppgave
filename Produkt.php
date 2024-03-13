@@ -12,14 +12,18 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="Meny">
+<div class="Ikoner">
+        <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
+        <div class="Meny">
+    
         <ul class="TopNav">
-        <a href="index.php" class="Menyknapp"><h3>Hjem</a>
+        <a href="index.php" id="Menyaktiv"><h3>Hjem</a>
         <a href="Produktoversikt.php" class="Menyknapp">Produkter</a>
-        <a href="profil.php"class="Menyknapp">Profil</a>
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
-    </ul>
-</div>
+       </ul>
+     </div>
+        <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
+    </div>
 </body>
 </html>
 <?php

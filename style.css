@@ -2,14 +2,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
   }
+/*  Meny  */
 .Meny {
     display: flex;
     justify-content: center;
 }
 .TopNav{
     font-size: larger;
+    display: flex;
+    justify-content: space-evenly;
 }
 .Menyknapp{
+    margin-left: 15px;
+    margin-right: 15px;
     color: #818181;
     text-decoration: none;
 }
@@ -17,7 +22,15 @@ body {
     color: #444;
 }
 #Menyaktiv {
+    margin-left: 15px;
+    margin-right: 15px;
     color: #444;
     text-decoration: none;
     font-weight: bold;
+    text-decoration: underline;
+}
+.Ikoner {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
 }
