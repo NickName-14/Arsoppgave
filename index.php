@@ -17,7 +17,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         
         if ($result->num_rows === 1) {
-            $sql2 = "SELECT Kunderid, Navn, Brukernavn, E-post, Passord, Admin FROM Kunder WHERE bruker ='".$bruker."'";
+            $sql2 = "SELECT Kunderid, Navn, Brukernavn, 'E-post', Passord, Admin FROM Kunder WHERE Brukernavn ='".$bruker."'";
             
             if ($stmt = $link->prepare($sql2)) {
                 if ($stmt->execute()) {
