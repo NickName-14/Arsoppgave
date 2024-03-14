@@ -16,15 +16,15 @@ require_once "config.php";
         <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
         <div class="Meny">
     
-        <ul class="TopNav">
+       <div class="TopNav">
         <a href="index.php" class="Menyknapp"><h3>Hjem</a>
         <a href="Produktoversikt.php"id="Menyaktiv">Produkter</a>
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
-       </ul>
+       </div>
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
-<h2>G.Skill Trident Z Neo DDR4 RGB 3600Mhz 32GB</h2>
+<h2></h2>
     <div class="ProduktOversikt">
     <?php
  $sql = "SELECT ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
@@ -42,8 +42,8 @@ require_once "config.php";
     echo "<p>". $row["ProduktKategori"] ."</p>";
     echo "<h2>". $row["ProduktNavn"] ."</h2>";
     echo "<h3>". $row["ProduktPris"] .",-</h3>";
-    echo "<button class='Handlevognknapp'>Legg i handelevogn</button>";
-    echo "<button class='Detaljerknapp'>Se detaljer</button>";
+    echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
+    echo "<button class='Detaljerknapp'>Se Detaljer</button>";
     echo "</div>";
     }
  } else {

@@ -37,7 +37,7 @@ body {
 /*  ProduktPreview  */
 
 .ProduktOversikt {
-    width: ;
+    width: 95%;
     padding: 1%;
     display: flex;
     justify-content: space-evenly;
