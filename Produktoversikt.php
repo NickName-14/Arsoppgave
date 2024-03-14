@@ -22,6 +22,7 @@ require_once "config.php";
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
        </ul>
      </div>
+     
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
     <h1>Produkter</h1>
@@ -29,4 +30,25 @@ require_once "config.php";
 </html>
 <?php
 
+$sql = "SELECT ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = 4";
+
+
+$result = $link->query($sql);
+
+
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["ProduktNavn"] . "</td>";
+        echo "<td>" . $row["ProduktPris"] . "</td>";
+        echo "<td>" . $row["ProduktMerke"] . "</td>";
+        echo "<td>" . $row["ProduktKategori"] . "</td>";
+        echo "<td><img src='" . $row["ProduktBilde"] . "' height='100px'></td>";
+        echo "<td>" . $row["ProduktBilde"] . "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='3'>No records found</td></tr>";
+}
 ?>
