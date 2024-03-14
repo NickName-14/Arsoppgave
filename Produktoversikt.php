@@ -22,33 +22,34 @@ require_once "config.php";
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
        </ul>
      </div>
-     
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
-    <h1>Produkter</h1>
-</body>
-</html>
-<?php
-
-$sql = "SELECT ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = 4";
+<h2>G.Skill Trident Z Neo DDR4 RGB 3600Mhz 32GB</h2>
+    <div class="ProduktOversikt">
+    <?php
+ $sql = "SELECT ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
 
 
-$result = $link->query($sql);
+ $result = $link->query($sql);
 
 
-if ($result->num_rows > 0) {
+ if ($result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["ProduktNavn"] . "</td>";
-        echo "<td>" . $row["ProduktPris"] . "</td>";
-        echo "<td>" . $row["ProduktMerke"] . "</td>";
-        echo "<td>" . $row["ProduktKategori"] . "</td>";
-        echo "<td><img src='" . $row["ProduktBilde"] . "' height='100px'></td>";
-        echo "<td>" . $row["ProduktBilde"] . "</td>";
-        echo "</tr>";
+
+    echo "<div class='ProduktPreview'>";
+    echo "<img src='" . $row["ProduktBilde"] . "'class='ProduktBilde' height='300px'>";
+    echo "<p>". $row["ProduktKategori"] ."</p>";
+    echo "<h2>". $row["ProduktNavn"] ."</h2>";
+    echo "<h3>". $row["ProduktPris"] .",-</h3>";
+    echo "<button class='Handlevognknapp'>Legg i handelevogn</button>";
+    echo "<button class='Detaljerknapp'>Se detaljer</button>";
+    echo "</div>";
     }
-} else {
+ } else {
     echo "<tr><td colspan='3'>No records found</td></tr>";
-}
+ }
 ?>
+    </div>
+</body>
+</html>
