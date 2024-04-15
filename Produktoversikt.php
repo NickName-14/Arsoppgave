@@ -24,10 +24,10 @@ require_once "config.php";
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
-<h2></h2>
     <div class="ProduktOversikt">
     <?php
- $sql = "SELECT ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
+
+ $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
 
 
  $result = $link->query($sql);
@@ -43,7 +43,8 @@ require_once "config.php";
     echo "<h2>". $row["ProduktNavn"] ."</h2>";
     echo "<h3>". $row["ProduktPris"] .",-</h3>";
     echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
-    echo "<button class='Detaljerknapp'>Se Detaljer</button>";
+    echo "<td><a class='Detaljerknapp' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></td>";
+
     echo "</div>";
     }
  } else {

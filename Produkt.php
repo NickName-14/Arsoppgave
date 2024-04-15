@@ -24,6 +24,32 @@ require_once "config.php";
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
+    <?php
+
+$sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = '" . $_SESSION['produktid'] . "'";
+
+
+$result = $link->query($sql);
+
+
+if ($result->num_rows > 0) {
+
+   while ($row = $result->fetch_assoc()) {
+
+   echo "<div class='ProduktPreview'>";
+   echo "<img src='" . $row["ProduktBilde"] . "'class='ProduktBilde' height='300px'>";
+   echo "<p>". $row["ProduktKategori"] ."</p>";
+   echo "<h2>". $row["ProduktNavn"] ."</h2>";
+   echo "<h3>". $row["ProduktPris"] .",-</h3>";
+   echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
+   echo "<td><a class='Detaljerknapp' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></td>";
+
+   echo "</div>";
+   }
+} else {
+   echo "<tr><td colspan='3'>No records found</td></tr>";
+}
+?>
 </body>
 </html>
 <?php
