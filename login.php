@@ -78,10 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot system Linje-5</title>
-    <link rel="icon" type="image/x-icon" href="assets/jpg/linje5.jpg">
+    <title>Login-Digistore</title>
+    <link rel="icon" type="image/x-icon" href="Bilder/Logo/IconAarsoppgave.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="<?=$_SERVER['PHP_SELF'];?>" method="GET" class="form-group">
