@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "skriv in et navn.";
     } else {
      
-        $sql = "SELECT id FROM login WHERE navn = ?";
+        $sql = "SELECT Kunderid FROM Kunder WHERE navn = ?";
 
         if ($stmt = $link->prepare($sql)) {
             $stmt->bind_param("s", $param_navn);
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "skriv in et brukernavn";
     } else {
       
-        $sql = "SELECT id FROM login WHERE bruker = ?";
+        $sql = "SELECT Kunderid FROM Kunder WHERE Brukernavn = ?";
 
         if ($stmt = $link->prepare($sql)) {
             $stmt->bind_param("s", $param_username);
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
       
-        $sql = "INSERT INTO Kunder (navn, brukernavn, 'E-post', passord, admin) VALUES (?, ?, ?, ?, 'false')";
+        $sql = "INSERT INTO Kunder (navn, brukernavn, passord, admin) VALUES (?, ?, ?, 'false')";
 
         if ($stmt = $link->prepare($sql)) {
             $stmt->bind_param("sss", $param_navn, $param_username, $param_password);
@@ -107,21 +107,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
-    <?php
-    include "css.php";
-    ?>
-    <link rel="icon" type="image/x-icon" href="assets/jpg/linje5.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering-Digistore</title>
+    <link rel="icon" type="image/x-icon" href="Bilder/Logo/IconAarsoppgave.png">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> " method="post" class="registrer-form">
-        <div class="imgcontainer">
-          <img src="assets/jpg/Linje5.jpg" alt="linje5" class="avatar">
-        </div>
           <h2>Register</h2>
           <div>
                 <label>Navn</label>
