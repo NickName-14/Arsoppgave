@@ -85,3 +85,46 @@ body {
     margin-top: 2%;
     margin-left: 5%;
 }
+
+.form-group {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.containerlogin {
+  padding: 16px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#loginbtn {
+  background-color: #ed2024;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#loginbtn:hover {
+  opacity: 0.8;
+}
+
+.wrapperlog {
+  background-color: #f1f1f1;
+  padding: 16px;
+}
+
+.psw {
+  float: left;
+  margin-right: 10px;
+}
