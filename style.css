@@ -137,6 +137,9 @@ input[type=text], input[type=password] {
 .Produktview {
     display: flex;
     justify-content: row;
+    border-top-style: solid;
+    border-color: black;
+    padding: 10px;
 }
 
 .Menybilde {
