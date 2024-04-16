@@ -35,16 +35,23 @@ $result = $link->query($sql);
 if ($result->num_rows > 0) {
 
    while ($row = $result->fetch_assoc()) {
-
-   echo "<div class='ProduktPreview'>";
-   echo "<img src='" . $row["ProduktBilde"] . "'class='ProduktBilde' height='300px'>";
-   echo "<p>". $row["ProduktKategori"] ."</p>";
-   echo "<h2>". $row["ProduktNavn"] ."</h2>";
-   echo "<h3>". $row["ProduktPris"] .",-</h3>";
-   echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
-   echo "<td><a class='Detaljerknapp' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></td>";
-
+   echo "<div class='Produktview'>";
+   echo "<div>";
+   echo "<img src='" . $row["ProduktBilde"] . "' height='700px'>";
    echo "</div>";
+   echo "<div>";
+   echo "<h1>". $row["ProduktNavn"] ."</h1>";
+   echo $row["ProduktKategori"];
+   echo "<br>";
+   echo "<h1>". $row["ProduktPris"] .",-</h1>";
+   echo "<br>";
+   echo $row["ProduktInfo"];
+   echo "<br>";
+   echo "<br>";
+   echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
+   echo "</div>";
+   echo "</div>";
+   
    }
 } else {
    echo "<tr><td colspan='3'>No records found</td></tr>";

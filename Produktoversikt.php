@@ -43,7 +43,7 @@ require_once "config.php";
     echo "<h2>". $row["ProduktNavn"] ."</h2>";
     echo "<h3>". $row["ProduktPris"] .",-</h3>";
     echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
-    echo "<td><a class='Detaljerknapp' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></td>";
+    echo "<td><div class='Detaljerknapp'><a class='knapptekst'href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div></td>";
 
     echo "</div>";
     }

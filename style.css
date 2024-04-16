@@ -73,7 +73,7 @@ body {
 }
 
 .Detaljerknapp {
-    color:#fff;
+
     background-color: #818181;
     border-style: none;
     cursor: pointer;
@@ -84,8 +84,13 @@ body {
     width: 90%;
     margin-top: 2%;
     margin-left: 5%;
+    text-align: center;
 }
 
+.knapptekst {
+    text-decoration: none;
+    color:#fff;
+}
 .form-group {
     width: 300px;
     margin: 0 auto;
@@ -127,4 +132,9 @@ input[type=text], input[type=password] {
 .psw {
   float: left;
   margin-right: 10px;
+}
+
+.Produktview {
+    display: flex;
+    justify-content: row;
 }
