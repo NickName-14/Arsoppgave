@@ -6,6 +6,7 @@ body {
 .Meny {
     display: flex;
     justify-content: center;
+    margin-right: 60px;
 }
 .TopNav{
     font-size: larger;
@@ -29,7 +30,6 @@ body {
     text-decoration: underline;
 }
 .Ikoner {
-    margin: 5px;
     display: flex;
     justify-content: space-between;
 }
@@ -137,4 +137,14 @@ input[type=text], input[type=password] {
 .Produktview {
     display: flex;
     justify-content: row;
+}
+
+.Menybilde {
+    display: flex;
+    justify-content: center;
+}
+
+#profil {
+    border-bottom-style: solid;
+    border-color: black;
 }

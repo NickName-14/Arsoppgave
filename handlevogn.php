@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once "config.php";
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +17,11 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+    </div>
 <div class="Ikoner">
-        <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
+        <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" id="profil" height="50px" alt=""></a>
         <div class="Meny">
     
         <ul class="TopNav">
@@ -22,8 +30,10 @@ require_once "config.php";
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
        </ul>
      </div>
+     
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
+    <h1>Handlevogn</h1>
 </body>
 </html>
 <?php

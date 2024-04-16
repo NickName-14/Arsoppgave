@@ -53,7 +53,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="10%">
+<div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+</div>
     <div class="Ikoner">
         <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
         <div class="Meny">
@@ -65,7 +67,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
        </ul>
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
-    </div>
+</div>
 
 </body>
 </html>

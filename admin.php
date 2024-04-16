@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+<div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+    </div>
 </body>
 </html>

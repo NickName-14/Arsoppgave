@@ -12,18 +12,21 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="Ikoner">
+<div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+</div>
+    <div class="Ikoner">
         <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
         <div class="Meny">
     
-       <div class="TopNav">
+        <ul class="TopNav">
         <a href="index.php" class="Menyknapp"><h3>Hjem</a>
-        <a href="Produktoversikt.php"id="Menyaktiv">Produkter</a>
+        <a href="Produktoversikt.php" id="Menyaktiv">Produkter</a>
         <a href="FAQ.php"class="Menyknapp">FAQ</h3></a>
-       </div>
+       </ul>
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
-    </div>
+</div>
     <div class="ProduktOversikt">
     <?php
 

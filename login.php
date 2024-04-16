@@ -85,6 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+    </div>
     <form action="<?=$_SERVER['PHP_SELF'];?>" method="GET" class="form-group">
 
       

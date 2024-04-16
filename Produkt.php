@@ -12,6 +12,9 @@ require_once "config.php";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <div class="Menybilde">
+    <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
+    </div>
 <div class="Ikoner">
         <a href="handlevogn.php"><img src="Bilder/SVG/conversation-svgrepo-com.svg" height="50px" alt=""></a>
         <div class="Meny">
