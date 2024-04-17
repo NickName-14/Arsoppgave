@@ -59,8 +59,6 @@ if ($result_outer->num_rows > 0) {
                 echo "<form method='post'>";
                 echo "<input type='hidden' name='delete_produktid' value='" . $row_inner['Produktid'] . "'>";
                 echo "<button type='submit' name='delete_submit'>Delete</button>";
-                
-                // Dropdown for editing quantity
                 echo "<input type='hidden' name='edit_produktid' value='" . $row_inner['Produktid'] . "'>";
                 echo "<select name='antall'>";
                 for ($i = 1; $i <= 10; $i++) {
@@ -91,7 +89,6 @@ if (isset($_POST['delete_submit'])) {
     }
 }
 
-// Handling quantity edit submission
 if (isset($_POST['edit_submit'])) {
     $edit_produktid = $_POST['edit_produktid'];
     $new_quantity = $_POST['antall'];
