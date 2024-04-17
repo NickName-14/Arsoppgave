@@ -45,8 +45,8 @@ require_once "config.php";
     echo "<p>". $row["ProduktKategori"] ."</p>";
     echo "<h2>". $row["ProduktNavn"] ."</h2>";
     echo "<h3>". $row["ProduktPris"] .",-</h3>";
-    echo "<button class='Handlevognknapp'>Legg I Handelevogn</button>";
-    echo "<td><div class='Detaljerknapp'><a class='knapptekst'href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div></td>";
+    echo "<div class='Detaljerknapp'><a class='knapptekst'href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div>";
+    echo "<div class='Handlevognknapp'><a class='knapptekst'href='set_produkt_handlevogn.php?produktid=" . $row["Produktid"] . "'>Legg I Handlevogn</a></div>";
 
     echo "</div>";
     }

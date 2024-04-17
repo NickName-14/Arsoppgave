@@ -34,8 +34,81 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
     </div>
     <h1>Handlevogn</h1>
-</body>
-</html>
-<?php
+    <?php
+
+$sql = "SELECT Produkt_handlevognid, Antall FROM Handlevogn WHERE Kunde_handlevognid = '" . $_SESSION['id'] . "'";
+
+$result_outer = $link->query($sql);
+
+if ($result_outer->num_rows > 0) {
+    while ($row_outer = $result_outer->fetch_assoc()) {
+        $produkt_handlevognid = $row_outer['Produkt_handlevognid'];
+
+        $sql_inner = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = '" . $produkt_handlevognid . "'";
+        $result_inner = $link->query($sql_inner);
+
+        if ($result_inner->num_rows > 0) {
+            while ($row_inner = $result_inner->fetch_assoc()) {
+                echo "<div class='HandlevognElement'>";
+                echo "<img src='" . $row_inner["ProduktBilde"] . "' height='100px'>";
+                echo "<div>";
+                echo "<h2>".$row_inner['ProduktNavn']."</h2>";
+                echo "<h3>".$row_inner['ProduktKategori']."</h3>";
+                echo "</div>";
+                echo "<h2>". $row_inner["ProduktPris"] .",-</h2>";
+                echo "<form method='post'>";
+                echo "<input type='hidden' name='delete_produktid' value='" . $row_inner['Produktid'] . "'>";
+                echo "<button type='submit' name='delete_submit'>Delete</button>";
+                
+                // Dropdown for editing quantity
+                echo "<input type='hidden' name='edit_produktid' value='" . $row_inner['Produktid'] . "'>";
+                echo "<select name='antall'>";
+                for ($i = 1; $i <= 10; $i++) {
+                    $selected = ($i == $row_outer['Antall']) ? "selected" : "";
+                    echo "<option value='$i' $selected>$i</option>";
+                }
+                echo "</select>";
+                echo "<button type='submit' name='edit_submit'>Edit</button>";
+                
+                echo "</form>";
+                echo "</div>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>Du har ingen produkter i handlevognene</td></tr>";
+        }
+    }
+} else {
+    echo "<tr><td colspan='3'>Du har ingen produkter i handlevognene</td></tr>";
+}
+
+if (isset($_POST['delete_submit'])) {
+    $delete_produktid = $_POST['delete_produktid'];
+    $delete_sql = "DELETE FROM Handlevogn WHERE Produkt_handlevognid = '$delete_produktid' AND Kunde_handlevognid = '" . $_SESSION['id'] . "'";
+    if ($link->query($delete_sql) === TRUE) {
+        header("location: handlevogn.php");
+    } else {
+        echo "Error deleting record: " . $link->error;
+    }
+}
+
+// Handling quantity edit submission
+if (isset($_POST['edit_submit'])) {
+    $edit_produktid = $_POST['edit_produktid'];
+    $new_quantity = $_POST['antall'];
+
+    $edit_sql = "UPDATE Handlevogn SET Antall = '$new_quantity' WHERE Produkt_handlevognid = '$edit_produktid' AND Kunde_handlevognid = '" . $_SESSION['id'] . "'";
+
+    if ($link->query($edit_sql) === TRUE) {
+        header("location: handlevogn.php");
+    } else {
+        echo "Error updating record: " . $link->error;
+    }
+}
+
+$link->close();
 
 ?>
+
+
+</body>
+</html>
