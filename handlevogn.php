@@ -58,7 +58,7 @@ if ($result_outer->num_rows > 0) {
                 echo "<h2>". $row_inner["ProduktPris"] .",-</h2>";
                 echo "<form method='post'>";
                 echo "<input type='hidden' name='delete_produktid' value='" . $row_inner['Produktid'] . "'>";
-                echo "<button type='submit' name='delete_submit'>Delete</button>";
+                echo "<button type='submit' name='delete_submit'>Fjern</button>";
                 echo "<input type='hidden' name='edit_produktid' value='" . $row_inner['Produktid'] . "'>";
                 echo "<select name='antall'>";
                 for ($i = 1; $i <= 10; $i++) {
@@ -66,7 +66,7 @@ if ($result_outer->num_rows > 0) {
                     echo "<option value='$i' $selected>$i</option>";
                 }
                 echo "</select>";
-                echo "<button type='submit' name='edit_submit'>Edit</button>";
+                echo "<button type='submit' name='edit_submit'>Endre</button>";
                 
                 echo "</form>";
                 echo "</div>";
