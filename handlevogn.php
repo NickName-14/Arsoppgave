@@ -105,7 +105,7 @@ if (isset($_POST['edit_submit'])) {
 $link->close();
 
 ?>
-
+<a href="bestiling.php">Til kassen</a>
 
 </body>
 </html>
