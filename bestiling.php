@@ -40,26 +40,25 @@ if ($result_outer->num_rows > 0) {
 
         if ($result_inner->num_rows > 0) {
             while ($row_inner = $result_inner->fetch_assoc()) {
+                $produkt = $row_inner['Produktid'];
+                $antall = $row_outer['Antall'];
+
+                $sql = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
         
-        $produkt = $row_inner['Produktid'];
-        $antall = $row_outer['Antall'];
+                if ($stmt = $link->prepare($sql)) {
+                    $stmt->bind_param("iii", $param_produkt, $param_bestiling, $param_antall);
+                    $param_produkt = $produkt;
+                    $param_bestiling = $bestiling;
+                    $param_antall = $antall;
         
-        $sql = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
-
-        if ($stmt = $link->prepare($sql)) {
-            $stmt->bind_param("iii", $param_produkt, $param_bestiling, $param_antall);
-            $param_produkt = $produkt;
-            $param_bestiling = $bestiling;
-            $param_antall = $antall;
-
-            if ($stmt->execute()) {
-                header("location: bestilingoversikt.php");
-                exit;
-            } else {
-                echo "Something went wrong. Please try again later.";
-            }        
-
-            }
+                    if ($stmt->execute()) {
+                        header("location: bestilingoversikt.php");
+                        exit;
+                    } else {
+                        echo "Something went wrong. Please try again later.";
+                    }        
+        
+                    }
         }
        
 
