@@ -17,22 +17,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         
         if ($result->num_rows === 1) {
-            $sql2 = "SELECT Kunderid, Navn, Brukernavn, 'E-post', Passord, Admin FROM Kunder WHERE Brukernavn ='".$bruker."'";
+            $sql2 = "SELECT Kunderid, Navn, Brukernavn, Epost, Passord, Admin FROM Kunder WHERE Brukernavn ='".$bruker."'";
             
             if ($stmt = $link->prepare($sql2)) {
                 if ($stmt->execute()) {
                     $stmt->store_result();
 
                     if ($stmt->num_rows == 1) {
-                        $stmt->bind_result($id, $navn, $username, $e_post, $password, $admin);
-
+                        $stmt->bind_result($id, $navn, $username, $epost, $password, $admin);
                         if ($stmt->fetch()) {
                             
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["navn"] = $navn;
                             $_SESSION["brukernavn"] = $username;
-                            $_SESSION["E-post"] = $e_post;
+                            $_SESSION["epost"] = $epost;
                             $_SESSION["passord"] = $password;
                             $_SESSION["admin"] = $admin;
                         }

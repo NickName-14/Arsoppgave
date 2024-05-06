@@ -33,7 +33,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg" id="profil" height="50px" alt=""></a>
     </div>
-    <h1><?php echo ($_SESSION["navn"]); ?></h1>
+    <h1><?php 
+    echo ($_SESSION["navn"]); 
+    ?></h1>
 </body>
 </html>
 <?php
