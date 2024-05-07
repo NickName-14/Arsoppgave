@@ -24,7 +24,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <img src="Bilder/Logo/LogoAarsoppgave.png" alt="" width="15%">
     </div>
     
-    <?php
+<?php
 
 ?>
 

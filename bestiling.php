@@ -27,45 +27,42 @@ if ($stmt = $link->prepare($sql)) {
 
 
 
-        $sql = "SELECT Produkt_handlevognid, Antall FROM Handlevogn WHERE Kunde_handlevognid = '" . $_SESSION['id'] . "'";
-
-$result_outer = $link->query($sql);
-
-if ($result_outer->num_rows > 0) {
-    while ($row_outer = $result_outer->fetch_assoc()) {
-        $produkt_handlevognid = $row_outer['Produkt_handlevognid'];
-
-        $sql_inner = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = '" . $produkt_handlevognid . "'";
-        $result_inner = $link->query($sql_inner);
-
-        if ($result_inner->num_rows > 0) {
-            while ($row_inner = $result_inner->fetch_assoc()) {
-                $produkt = $row_inner['Produktid'];
+        $sql = "SELECT Produkt_handlevognid, Antall FROM Handlevogn WHERE Kunde_handlevognid = ?";
+        if ($stmt_outer = $link->prepare($sql)) {
+            $stmt_outer->bind_param("i", $_SESSION['id']);
+            $stmt_outer->execute();
+            $result_outer = $stmt_outer->get_result();
+        
+            while ($row_outer = $result_outer->fetch_assoc()) {
+                $produkt_handlevognid = $row_outer['Produkt_handlevognid'];
                 $antall = $row_outer['Antall'];
-
-                $sql = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
         
-                if ($stmt = $link->prepare($sql)) {
-                    $stmt->bind_param("iii", $param_produkt, $param_bestiling, $param_antall);
-                    $param_produkt = $produkt;
-                    $param_bestiling = $bestiling;
-                    $param_antall = $antall;
+                $sql_inner = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE Produktid = ?";
+                if ($stmt_inner = $link->prepare($sql_inner)) {
+                    $stmt_inner->bind_param("i", $produkt_handlevognid);
+                    $stmt_inner->execute();
+                    $result_inner = $stmt_inner->get_result();
         
-                    if ($stmt->execute()) {
-                        header("location: bestilingoversikt.php");
-                        exit;
-                    } else {
-                        echo "Something went wrong. Please try again later.";
-                    }        
+                    if ($row_inner = $result_inner->fetch_assoc()) {
+                        $produkt = $row_inner['Produktid'];
         
+                        $sql_insert = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
+                        if ($stmt_insert = $link->prepare($sql_insert)) {
+                            $stmt_insert->bind_param("iii", $produkt, $bestiling, $antall);
+                            $stmt_insert->execute();
+                            $stmt_insert->close();
+                        }
                     }
+                    $stmt_inner->close();
+                }
+            }
+            $stmt_outer->close();
+            header("location: bestilingoversikt.php");
+            exit;
+        } else {
+            echo "Something went wrong. Please try again later.";
         }
-       
-
-
-        }
-    }
-}
+        
 }
 }
 
