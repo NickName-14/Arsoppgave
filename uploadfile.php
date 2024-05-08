@@ -14,6 +14,7 @@ if (file_exists($_FILES["uploadfile"]["tmp_name"])){
     // Attempt to move the file
     if (move_uploaded_file($source_tmp_name, $destination)) {
         echo "File moved successfully.";
+        echo $source_name;
         header("location: admin.php");
     } else {
         echo "Error moving file.";

@@ -62,22 +62,23 @@ if ($result_bestiling->num_rows > 0) {
 ?>
 <h1>Legge til flere produkter</h1>
 <form method="post" action="uploadfile.php" enctype="multipart/form-data">
-    <label for="input1">Input 1:</label>
-    <input type="text" id="input1" name="input1"><br><br>
-    
-    <label for="input2">Input 2:</label>
-    <input type="text" id="input2" name="input2"><br><br>
-    
-    <label for="input3">Input 3:</label>
-    <input type="text" id="input3" name="input3"><br><br>
-    
-    <label for="input4">Input 4:</label>
-    <input type="text" id="input4" name="input4"><br><br>
-    
-    <label for="input5">Input 5:</label>
-    <input type="text" id="input5" name="input5"><br><br>
 
-    <label for="file">File name:</label>
+    <label for="navn">Produkt navn:</label>
+    <input type="text" id="navn" name="navn"><br><br>
+    
+    <label for="pris">Produkt pris:</label>
+    <input type="text" id="pris" name="pris"><br><br>
+    
+    <label for="merke">Produkt merke:</label>
+    <input type="text" id="merke" name="merke"><br><br>
+    
+    <label for="kategori">Produkt kategori:</label>
+    <input type="text" id="kategori" name="kategori"><br><br>
+    
+    <label for="info">Produkt info:</label>
+    <input type="text" id="info" name="info"><br><br>
+
+    <label for="file">ProduktBilde:</label>
    <input type="file" name="uploadfile" />
     
     <input type="submit" value="Submit">
