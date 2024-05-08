@@ -60,7 +60,7 @@ if ($result_bestiling->num_rows > 0) {
 }
 
 ?>
-<h1>Legge til flere produkter</h1>
+<h1>Legge til nytt produkt</h1>
 <form method="post" action="uploadfile.php" enctype="multipart/form-data">
 
     <label for="navn">Produkt navn:</label>
