@@ -49,6 +49,7 @@ if ($stmt = $link->prepare($sql)) {
                         $sql_insert = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
                         if ($stmt_insert = $link->prepare($sql_insert)) {
                             $stmt_insert->bind_param("iii", $produkt, $bestiling, $antall);
+
                             $stmt_insert->execute();
                             $stmt_insert->close();
                         }

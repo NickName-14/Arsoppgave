@@ -162,3 +162,22 @@ input[type=text], input[type=password] {
     height: fit-content;
     margin-bottom: 30px;
 }
+
+.ticket-info-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ticket-info-table th, .ticket-info-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.ticket-info-table th {
+    background-color: #f2f2f2;
+}
+
+.ticket-info-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

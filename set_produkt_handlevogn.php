@@ -38,6 +38,4 @@ if (isset($_GET['produktid'])) {
 }
 
 exit;
-
-
 ?>
