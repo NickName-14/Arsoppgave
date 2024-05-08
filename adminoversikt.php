@@ -34,7 +34,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
  <ul class="TopNav">
     <a href="adminoversikt.php" id="Menyaktiv">Bestilings Oversikt</a>
-    <a href="nyttprodukt" class="Menyknapp">Legge Til Produkt</a>
+    <a href="nyttprodukt.php" class="Menyknapp">Legge Til Produkt</a>
 </ul>
 </body>
 </html>
