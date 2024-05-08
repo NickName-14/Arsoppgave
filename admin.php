@@ -61,7 +61,7 @@ if ($result_bestiling->num_rows > 0) {
 
 ?>
 <h1>Legge til flere produkter</h1>
-<form method="post" action="upload.php">
+<form method="post" action="uploadfile.php" enctype="multipart/form-data">
     <label for="input1">Input 1:</label>
     <input type="text" id="input1" name="input1"><br><br>
     
@@ -77,8 +77,8 @@ if ($result_bestiling->num_rows > 0) {
     <label for="input5">Input 5:</label>
     <input type="text" id="input5" name="input5"><br><br>
 
-    <label for="image">Upload Image:</label>
-    <input type="file" id="image" name="image"><br><br>
+    <label for="file">File name:</label>
+   <input type="file" name="uploadfile" />
     
     <input type="submit" value="Submit">
 </form>
