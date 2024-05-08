@@ -26,6 +26,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     
         <ul class="TopNav">
         <h3><a href="index.php"class="Menyknapp">Hjem</a></h3>
+        <?php include "meny.php"; ?>
         <h3><a href="Produktoversikt.php" class="Menyknapp">Produkter</a></h3>
         <h3><a href="FAQ.php"class="Menyknapp">FAQ</a></h3>
         <h3><a href="Logut.php"class="Menyknapp">Log ut</a></h3>

@@ -9,9 +9,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: index.php");
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +34,31 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
  <ul class="TopNav">
     <a href="adminoversikt.php" class="Menyknapp">Bestilings Oversikt</a>
-    <a href="nyttprodukt.php" class="Menyknapp">Legge Til Produkt</a>
+    <a href="nyttprodukt"  id="Menyaktiv">Legge Til Produkt</a>
 </ul>
+
+<h1>Legge til nytt produkt</h1>
+<form method="post" action="uploadfile.php" enctype="multipart/form-data">
+
+    <label for="navn">Produkt navn:</label>
+    <input type="text" id="navn" name="navn"><br><br>
+    
+    <label for="pris">Produkt pris:</label>
+    <input type="text" id="pris" name="pris"><br><br>
+    
+    <label for="merke">Produkt merke:</label>
+    <input type="text" id="merke" name="merke"><br><br>
+    
+    <label for="kategori">Produkt kategori:</label>
+    <input type="text" id="kategori" name="kategori"><br><br>
+    
+    <label for="info">Produkt info:</label>
+    <input type="text" id="info" name="info"><br><br>
+
+    <label for="file">ProduktBilde:</label>
+   <input type="file" name="uploadfile" />
+    
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
