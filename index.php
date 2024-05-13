@@ -68,8 +68,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
 </div>
 <div>
-<h1>Velkomen til DIGISTORE</h1>
-<h2>Det beste utvalgene til de beste prisene</h2>
+<h1 class="OmOssTitel">Her oss i DigiStore er vi stolte av vårt utvalg av produkter til gode priser.</h1>
 </div>
 </body>
 </html>

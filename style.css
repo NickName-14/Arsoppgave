@@ -2,6 +2,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
   }
+
+  .OmOssTitel {
+    color: #000;
+    margin-left: 22%;
+  }
 /*  Meny  */
 .Meny {
     display: flex;
