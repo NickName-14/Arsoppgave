@@ -8,17 +8,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 } 
 
 
-
+$status = "Under arbeid";
 $current_time = time();
 
-$sql = "INSERT INTO Bestilinger (Kunde, Dato) VALUES (?, ?)";
+$sql = "INSERT INTO Bestilinger (Kunde, Dato, Status) VALUES (?, ?, ?)";
 
 if ($stmt = $link->prepare($sql)) {
-    $stmt->bind_param("ss", $param_Kunde, $param_Dato);
+    $stmt->bind_param("sss", $param_Kunde, $param_Dato, $param_status);
 
 
     $param_Kunde = $_SESSION["id"];
     $param_Dato = date("Y-m-d H:i:s", $current_time); 
+    $param_status = $status;
 
     if ($stmt->execute()) {
         $bestiling = $stmt->insert_id;
@@ -45,6 +46,7 @@ if ($stmt = $link->prepare($sql)) {
         
                     if ($row_inner = $result_inner->fetch_assoc()) {
                         $produkt = $row_inner['Produktid'];
+                        
         
                         $sql_insert = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
                         if ($stmt_insert = $link->prepare($sql_insert)) {

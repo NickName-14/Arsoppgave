@@ -41,7 +41,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 </body>
 </html>
 <?php
-$sql_bestiling = "SELECT ProduktiBestilingId, Kunde, Dato/*, Status*/ FROM Bestilinger WHERE Kunde = '" . $_SESSION['id'] . "' ";
+$sql_bestiling = "SELECT ProduktiBestilingId, Kunde, Dato, Status FROM Bestilinger WHERE Kunde = '" . $_SESSION['id'] . "' ";
 
 $result_bestiling = $link->query($sql_bestiling);
 
@@ -63,13 +63,13 @@ if ($result_bestiling->num_rows > 0) {
         } 
 
         
-        //echo "<td>" . $row["Status"] . "</td>";
+        echo "<td>" . $row["Status"] . "</td>";
         echo "<td>" . $row["Dato"] . "</td>";
         echo "</tr>";
     }
     echo "</table>";
 } else {
-    echo "No ticket found.";
+    echo "Ingen bestilinger.";
 }
 
 ?>
