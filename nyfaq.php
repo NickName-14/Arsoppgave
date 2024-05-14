@@ -41,14 +41,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <h1>Legge til nytt produkt</h1>
 <form method="post" action="AddFAQ.php" enctype="multipart/form-data">
 
-    <label for="navn">Produkt navn:</label>
+    <label for="navn">Side navn:</label>
     <input type="text" id="navn" name="navn"><br><br>
     
-    <label for="pris">Produkt pris:</label>
-    <input type="text" id="pris" name="pris"><br><br>
+    <label for="kategori">Side kategori:</label>
+    <input type="text" id="kategori" name="kategori"><br><br>
     
-    <label for="merke">Produkt merke:</label>
-    <input type="text" id="merke" name="merke"><br><br>
+    <label for="tekst">FAQ tekst:</label>
+    <input type="text" id="tekst" name="tekst"><br><br>
 
     <input type="submit" value="Submit">
 </form>
