@@ -45,10 +45,11 @@ if ($stmt = $link->prepare($sql)) {
         
                     if ($row_inner = $result_inner->fetch_assoc()) {
                         $produkt = $row_inner['Produktid'];
+                        $status = "Under arbeid"
         
-                        $sql_insert = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall) VALUES (?, ?, ?)";
+                        $sql_insert = "INSERT INTO Produkter_I_Bestiling (Produkt, Bestiling, Antall, Status) VALUES (?, ?, ?, ?)";
                         if ($stmt_insert = $link->prepare($sql_insert)) {
-                            $stmt_insert->bind_param("iii", $produkt, $bestiling, $antall);
+                            $stmt_insert->bind_param("iii", $produkt, $bestiling, $antall, $status);
 
                             $stmt_insert->execute();
                             $stmt_insert->close();
