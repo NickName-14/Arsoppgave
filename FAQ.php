@@ -27,6 +27,29 @@ require_once "config.php";
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
 </div>
+
+<?php
+
+$sql = "SELECT Navn, Kategori, FAQtekst FROM FAQ";
+
+
+$result = $link->query($sql);
+
+
+if ($result->num_rows > 0) {
+
+   while ($row = $result->fetch_assoc()) {
+
+   echo "<h1>". $row["Navn"] ."</h1>";
+   echo "<h2>". $row["Kategori"] ."</h2>";
+   echo "<h3>". $row["FAQtekst"] .",-</h3>";
+
+
+   }
+} else {
+   echo "<tr><td colspan='3'>No records found</td></tr>";
+}
+?>
 </body>
 </html>
 <?php

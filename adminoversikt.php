@@ -34,12 +34,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
  <ul class="TopNav">
     <a href="adminoversikt.php" id="Menyaktiv">Bestilings Oversikt</a>
+    <a href="nyfaq.php" class="Menyknapp">Ny faq side</a>
     <a href="nyttprodukt.php" class="Menyknapp">Legge Til Produkt</a>
 </ul>
 </body>
 </html>
 <?php
-$sql_bestiling = "SELECT ProduktiBestilingId, Kunde, Dato/*, Status*/ FROM Bestilinger";
+$sql_bestiling = "SELECT ProduktiBestilingId, Kunde, Dato, Status FROM Bestilinger";
 
 $result_bestiling = $link->query($sql_bestiling);
 
@@ -61,7 +62,7 @@ if ($result_bestiling->num_rows > 0) {
         } 
 
         
-        //echo "<td>" . $row["Status"] . "</td>";
+        echo "<td>" . $row["Status"] . "</td>";
         echo "<td>" . $row["Dato"] . "</td>";
         echo "</tr>";
     }
