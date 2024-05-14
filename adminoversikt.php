@@ -67,6 +67,6 @@ if ($result_bestiling->num_rows > 0) {
     }
     echo "</table>";
 } else {
-    echo "No ticket found.";
+    echo "Ingen bestilinger.";
 }
 ?>
