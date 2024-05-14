@@ -35,7 +35,7 @@ $bilde = $filbane . $source_name;
 $sql = "INSERT INTO Produkter (ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde) VALUES (?,?,?,?,?,?)";
 
 if ($stmt = $link->prepare($sql)) {
-    $stmt->bind_param("ssssss", $param_navn, $param_pris, $param_merke, $param_kategori, $param_info, $param_bilde);
+    $stmt->bind_param("sissss", $param_navn, $param_pris, $param_merke, $param_kategori, $param_info, $param_bilde);
     $param_navn = $navn;
     $param_pris = $pris;
     $param_merke = $merke;
