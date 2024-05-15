@@ -48,7 +48,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <input type="text" id="kategori" name="kategori"><br><br>
     
     <label for="tekst">FAQ tekst:</label>
-    <input type="text" id="tekst" name="tekst"><br><br>
+    
+    <textarea name="tekst" rows="10" cols="257" id="tekst"></textarea><br><br>
 
     <input type="submit" value="Submit">
 </form>

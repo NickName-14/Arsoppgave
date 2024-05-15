@@ -40,9 +40,13 @@ if ($result->num_rows > 0) {
 
    while ($row = $result->fetch_assoc()) {
 
-   echo "<h1>". $row["Navn"] ."</h1>";
-   echo "<h2>". $row["Kategori"] ."</h2>";
+   echo "<div class = 'faq'>";
+   echo "<div class = 'faqtekst>'";
+   echo "<h1>". $row["Kategori"] ."</h1>";
+   echo "<h2>". $row["Navn"] ."</h2>";
    echo "<h3>". $row["FAQtekst"] .",-</h3>";
+   echo "</div>";
+   echo "</div>";
 
 
    }
