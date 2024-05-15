@@ -1,7 +1,7 @@
 <?php
-$servername = "10.200.1.108";
-$username = "root";
-$password = "Admin";
+$servername = "localhost";
+$username = "DigiStore";
+$password = "IMKuben1337!";
 $dbname = "Årsoppgave";
 
 // koble til databasen
