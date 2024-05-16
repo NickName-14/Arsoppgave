@@ -27,7 +27,7 @@ require_once "config.php";
      </div>
         <a href="profil.php"><img src="Bilder/SVG/user-svgrepo-com.svg"  height="50px" alt=""></a>
 </div>
-<h1>TEST</h1>
+
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <label for="select_option">Filterer</label>
