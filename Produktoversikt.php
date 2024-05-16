@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once "config.php";
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,75 +50,23 @@ require_once "config.php";
 
 <div class="ProduktOversikt">
 <?php
-while ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
-    $stmt = $link->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-
-    if ($result->num_rows > 0) {
-
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='ProduktPreview'>";
-            echo "<img src='" . $row["ProduktBilde"] . "' class='ProduktBilde' height='300px'>";
-            echo "<p>". $row["ProduktKategori"] ."</p>";
-            echo "<h2>". $row["ProduktNavn"] ."</h2>";
-            echo "<h3>". $row["ProduktPris"] .",-</h3>";
-            echo "<div class='Detaljerknapp'><a class='knapptekst' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div>";
-            echo "<div class='Handlevognknapp'><a class='knapptekst' href='set_produkt_handlevogn.php?produktid=" . $row["Produktid"] . "'>Legg I Handlevogn</a></div>";
-            echo "</div>";
-        }
-
-    } else {
-        echo "<p>No records found</p>";
-    }
-
-    $stmt->close();
-    $link->close();
-}
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$Kategori = $_POST["select_option"];
+    $Kategori = $_POST["select_option"];
     if (empty($Kategori)) {
-        
         $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
-    $stmt = $link->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-
-    if ($result->num_rows > 0) {
-
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='ProduktPreview'>";
-            echo "<img src='" . $row["ProduktBilde"] . "' class='ProduktBilde' height='300px'>";
-            echo "<p>". $row["ProduktKategori"] ."</p>";
-            echo "<h2>". $row["ProduktNavn"] ."</h2>";
-            echo "<h3>". $row["ProduktPris"] .",-</h3>";
-            echo "<div class='Detaljerknapp'><a class='knapptekst' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div>";
-            echo "<div class='Handlevognknapp'><a class='knapptekst' href='set_produkt_handlevogn.php?produktid=" . $row["Produktid"] . "'>Legg I Handlevogn</a></div>";
-            echo "</div>";
-        }
-
     } else {
-        echo "<p>No records found</p>";
+        $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE ProduktKategori = ?";
     }
 
-    $stmt->close();
-    $link->close();
-    }else{
-        
-    $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter WHERE ProduktKategori = ?";
     $stmt = $link->prepare($sql);
-    $stmt->bind_param("s", $Kategori);
+    if (!empty($Kategori)) {
+        $stmt->bind_param("s", $Kategori);
+    }
     $stmt->execute();
     $result = $stmt->get_result();
 
-
     if ($result->num_rows > 0) {
-
         while ($row = $result->fetch_assoc()) {
             echo "<div class='ProduktPreview'>";
             echo "<img src='" . $row["ProduktBilde"] . "' class='ProduktBilde' height='300px'>";
@@ -132,15 +82,31 @@ $Kategori = $_POST["select_option"];
     }
 
     $stmt->close();
-    $link->close();
+} else {
+    $sql = "SELECT Produktid, ProduktNavn, ProduktPris, ProduktMerke, ProduktKategori, ProduktInfo, ProduktBilde FROM Produkter";
+    $result = $link->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='ProduktPreview'>";
+            echo "<img src='" . $row["ProduktBilde"] . "' class='ProduktBilde' height='300px'>";
+            echo "<p>". $row["ProduktKategori"] ."</p>";
+            echo "<h2>". $row["ProduktNavn"] ."</h2>";
+            echo "<h3>". $row["ProduktPris"] .",-</h3>";
+            echo "<div class='Detaljerknapp'><a class='knapptekst' href='set_produkt.php?produktid=" . $row["Produktid"] . "'>Se Detaljer</a></div>";
+            echo "<div class='Handlevognknapp'><a class='knapptekst' href='set_produkt_handlevogn.php?produktid=" . $row["Produktid"] . "'>Legg I Handlevogn</a></div>";
+            echo "</div>";
+        }
+    } else {
+        echo "<p>No records found</p>";
     }
-
-    
-
-
 }
 ?>
 </div>
 
 </body>
 </html>
+
+<?php
+$link->close();
+?>
