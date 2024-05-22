@@ -14,9 +14,7 @@ $current_time = time();
 $sql = "INSERT INTO Bestilinger (Kunde, Dato, Status) VALUES (?, ?, ?)";
 
 if ($stmt = $link->prepare($sql)) {
-    $stmt->bind_param("sss", $param_Kunde, $param_Dato, $param_status);
-
-
+    $stmt->bind_param("sss", $param_Kunde, $param_Dato, $param_status,);
     $param_Kunde = $_SESSION["id"];
     $param_Dato = date("Y-m-d H:i:s", $current_time); 
     $param_status = $status;
