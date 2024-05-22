@@ -77,8 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $confirm_password_err = "Passordet du skrev in var ikke likt";
         }
     }
+    
 
-   
+   $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
       
         $sql = "INSERT INTO Kunder (navn, brukernavn, passord, admin) VALUES (?, ?, ?, 'false')";
@@ -87,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("sss", $param_navn, $param_username, $param_password);
             $param_navn = $navn;
             $param_username = $username;
-            $param_password = $password;
+            $param_password = $hashedPassword;
 
             if ($stmt->execute()) {
                
